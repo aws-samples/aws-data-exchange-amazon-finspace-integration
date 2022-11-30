@@ -1,7 +1,5 @@
 ## How to set-up a fully automated data pipeline from AWS Data Exchange to Amazon FinSpace
 
-TODO: Fill this README out!
-
 This repo provides the CloudFormation template to deploy the automated integration between Amazon Data Exchange and Amazon FinSpace. 
 
 More details about this repo are available in this blog
