@@ -1,0 +1,5 @@
+{
+    "s3BucketArn": "arn:aws:s3:::deutscheborse-20220502",
+    "s3BucketName": "deutscheborse-20220502",
+    "s3Region": "us-east-1"
+  }

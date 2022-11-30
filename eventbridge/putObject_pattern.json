@@ -1,0 +1,16 @@
+{
+    "source": ["aws.s3"],
+    "detail-type": ["Object Created"],
+    "detail": {
+      "bucket": {
+        "name": ["finspace-input-us"]
+      },
+      "object": {
+        "key": [{
+          "anything-but": {
+            "prefix": "_processed"
+          }
+        }]
+      }
+    }
+  }

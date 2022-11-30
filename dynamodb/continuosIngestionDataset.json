@@ -1,0 +1,100 @@
+{
+    "s3DatasetBucketArn": "arn:aws:s3:::simple-continuous-ingestion-dataset",
+    "datasetDescription": "Price over time",
+    "datasetName": "SimpleTest",
+    "finspaceChangesetType": "APPEND",
+    "finspaceDatasetColumns": [
+     {
+      "columnDescription": "ISIN of the security",
+      "columnName": "ISIN",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "The product market segment, following the convention on http://www.eurexchange.com",
+      "columnName": "Mnemonic",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "Description of the security",
+      "columnName": "SecurityDesc",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "Type of security",
+      "columnName": "SecurityType",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "Currency in which the product is traded",
+      "columnName": "Currency",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "Unique identifier for each contract",
+      "columnName": "SecurityID",
+      "dataType": "INTEGER"
+     },
+     {
+      "columnDescription": "Date of trading period",
+      "columnName": "Date",
+      "dataType": "DATE"
+     },
+     {
+      "columnDescription": "Minute of trading to which this entry relates",
+      "columnName": "Time",
+      "dataType": "STRING"
+     },
+     {
+      "columnDescription": "Trading price at the start of period",
+      "columnName": "StartPrice",
+      "dataType": "DOUBLE"
+     },
+     {
+      "columnDescription": "Maximum price over the period",
+      "columnName": "MaxPrice",
+      "dataType": "DOUBLE"
+     },
+     {
+      "columnDescription": "Minimum price over the period",
+      "columnName": "MinPrice",
+      "dataType": "DOUBLE"
+     },
+     {
+      "columnDescription": "Trading price at the end of the period",
+      "columnName": "EndPrice",
+      "dataType": "DOUBLE"
+     },
+     {
+      "columnDescription": "Total value traded",
+      "columnName": "TradedVolume",
+      "dataType": "DOUBLE"
+     },
+     {
+      "columnDescription": "Number of distinct trades during the period",
+      "columnName": "NumberOfTrades",
+      "dataType": "INTEGER"
+     }
+    ],
+    "finspaceDatasetId": "4juytd0",
+    "finspaceDatasetKeyColumns": [
+     "string"
+    ],
+    "finspaceDatasetOwnerInfo": {
+     "email": "luke@lightside.com",
+     "name": "Luke Skywalker",
+     "phoneNumber": "44677534786"
+    },
+    "finspaceDatasetPermissions": [
+     "ViewDatasetDetails",
+     "ReadDatasetData",
+     "AddDatasetData",
+     "CreateSnapshot",
+     "EditDatasetMetadata",
+     "ManageDatasetPermissions",
+     "DeleteDataset"
+    ],
+    "finspaceEnvironmentId": "a3aei7wm6rb4syizqikw27",
+    "finspaceGroupId": "rsBEirwRD8YXwmG1gXJA9A",
+    "finspaceLastChangesetId": "qsBXebkiKH4fiV5YvgfiPA",
+    "finspaceRegion": "us-east-1"
+   }

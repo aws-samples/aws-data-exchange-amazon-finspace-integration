@@ -1,0 +1,852 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "77e769ba-dea6-4d0c-8609-2b416ecbbc36": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 60
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "38f0f6cd-7020-4121-b8c0-23aca586f208": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 420,
+                    "y": 60
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "b5562198-371c-4ecb-a0b7-741e341fa2b9": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 750,
+                    "y": 60
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "4d5eef41-fe91-4ce4-ba12-a1c075e95162": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 330,
+                    "y": 30
+                },
+                "z": 1,
+                "embeds": [],
+                "dependson": [
+                    "b5562198-371c-4ecb-a0b7-741e341fa2b9"
+                ]
+            },
+            "24d72f76-86ce-40a0-a906-53d2a6692d8f": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 150
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "e3c54ae9-e196-42ea-8094-5a6f724f5bc0": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 420,
+                    "y": 150
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "9ff2e624-3840-47a1-a831-b4169b39c070": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 570,
+                    "y": 60
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "2f880782-60d2-4ec2-bb71-3fa3240c19ec": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 710,
+                    "y": -40
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "06e912f1-586b-40cb-8fb9-e75cd53235b6": {
+                "size": {
+                    "width": 150,
+                    "height": 150
+                },
+                "position": {
+                    "x": 720,
+                    "y": 180
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "5cd247dc-0767-4ef4-b1f5-1e8b1eac2fdf": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 40,
+                    "y": 260
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "c17ff2f6-e308-42ef-a0cb-ac2a67b7b277": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 180,
+                    "y": 380
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "32e68163-0960-4b54-af4c-23c4d3268fd6": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": -90,
+                    "y": 380
+                },
+                "z": 1,
+                "embeds": []
+            },
+            "adb171d7-e2d7-4983-9cf8-a45f7c4df813": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1020,
+                    "y": 90
+                },
+                "z": 0,
+                "embeds": []
+            },
+            "6719fcfe-4b04-4d3a-afe7-683383a4dc4d": {
+                "size": {
+                    "width": 60,
+                    "height": 60
+                },
+                "position": {
+                    "x": 1090,
+                    "y": 200
+                },
+                "z": 0,
+                "embeds": []
+            }
+        }
+    },
+    "Parameters": {
+        "S3RearcDataFilesBucket": {
+            "Description": "The S3 bucket where Rearc Daily Treasury Maturities files will be saved from AWS Data Exchange",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128"
+        },
+        "S3sourceBucket": {
+            "Description": "The S3 bucket with source code",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128",
+            "Default": "amazonfinspace"
+        },
+        "CoreStackName": {
+            "Description": "The core cfn stack name previously run",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128"
+        },
+        "EnvironmentInfrastructureAccount": {
+            "Description": "FinSpace Environment infrastructure account, available on FinSpace AWS Console. This is not your AWS account number",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128"
+        },
+        "FinspaceDomainId": {
+            "Description": "FinSpace domain id. If your Finspace URL is https://qdak36ebnwmsapd6u5esp.us-east-1.amazonfinspace.com, then the value of the domain id is qdak36ebnwmsapd6u5esp.",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128"
+        },
+        "FinspaceGroupId": {
+            "Description": "The id of the FinSpace Administrators group in your Finspace instance. To get it access Finspace, then select Users and Groups and finally access the Permission groups tab.",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128"
+        },
+        "FinspaceDatasetOwnerName": {
+            "Description": "The name of the dataset owner on Finspace",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128",
+            "Default": "Test User"
+        },
+        "FinspaceDatasetOwnerEmail": {
+            "Description": "The email of the dataset owner on Finspace",
+            "Type": "String",
+            "MinLength": "1",
+            "MaxLength": "128",
+            "Default": "ChangeMe@amazon.com"
+        },
+        "FinspaceDatasetOwnerPhone": {
+            "Description": "The phone number of the dataset owner on Finspace",
+            "Type": "String",
+            "MinLength": "10",
+            "MaxLength": "24",
+            "Default": "0123456789"
+        }
+    },
+    "Resources": {
+        "LambdaRoleRearc": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            },
+                            "Action": [
+                                "sts:AssumeRole"
+                            ]
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "dynamodbAccessRole",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "dynamodb:BatchGetItem",
+                                        "dynamodb:BatchWriteItem",
+                                        "dynamodb:ConditionCheckItem",
+                                        "dynamodb:PutItem",
+                                        "dynamodb:DescribeTable",
+                                        "dynamodb:DeleteItem",
+                                        "dynamodb:GetItem",
+                                        "dynamodb:Scan",
+                                        "dynamodb:Query",
+                                        "dynamodb:UpdateItem"
+                                    ],
+                                    "Resource": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:dynamodb:",
+                                                {
+                                                    "Fn::ImportValue": {
+                                                        "Fn::Sub": "${CoreStackName}-FinspaceRegion"
+                                                    }
+                                                },
+                                                ":",
+                                                {
+                                                    "Ref": "AWS::AccountId"
+                                                },
+                                                ":table/",
+                                                {
+                                                    "Fn::ImportValue": {
+                                                        "Fn::Sub": "${CoreStackName}-DynamoDbTable"
+                                                    }
+                                                }
+                                            ]
+                                        ]
+                                    }
+                                },
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Resource": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:logs:",
+                                                {
+                                                    "Fn::ImportValue": {
+                                                        "Fn::Sub": "${CoreStackName}-FinspaceRegion"
+                                                    }
+                                                },
+                                                ":",
+                                                {
+                                                    "Ref": "AWS::AccountId"
+                                                },
+                                                ":log-group:/aws/lambda/*"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "5cd247dc-0767-4ef4-b1f5-1e8b1eac2fdf"
+                }
+            }
+        },
+        "InitFunction": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Code": {
+                    "S3Bucket": {
+                        "Ref": "S3sourceBucket"
+                    },
+                    "S3Key": "lambda-create-dynamo-item-rearc-maturity.zip"
+                },
+                "Handler": "index.handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "LambdaRoleRearc",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "nodejs14.x",
+                "Timeout": 60
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "c17ff2f6-e308-42ef-a0cb-ac2a67b7b277"
+                }
+            }
+        },
+        "InitializeDynamoDB": {
+            "Type": "Custom::InitFunction",
+            "Properties": {
+                "ServiceToken": {
+                    "Fn::GetAtt": [
+                        "InitFunction",
+                        "Arn"
+                    ]
+                },
+                "DynamoTableName": {
+                    "Fn::ImportValue": {
+                        "Fn::Sub": "${CoreStackName}-DynamoDbTable"
+                    }
+                },
+                "S3RearcDataFilesBucket": {
+                    "Ref": "S3RearcDataFilesBucket"
+                },
+                "FinspaceDatasetOwnerEmail": {
+                    "Ref": "FinspaceDatasetOwnerEmail"
+                },
+                "FinspaceDatasetOwnerName": {
+                    "Ref": "FinspaceDatasetOwnerName"
+                },
+                "FinspaceDatasetOwnerPhone": {
+                    "Ref": "FinspaceDatasetOwnerPhone"
+                },
+                "FinspaceDomainId": {
+                    "Ref": "FinspaceDomainId"
+                },
+                "FinspaceGroupId": {
+                    "Ref": "FinspaceGroupId"
+                },
+                "FinspaceRegion": {
+                    "Fn::ImportValue": {
+                        "Fn::Sub": "${CoreStackName}-FinspaceRegion"
+                    }
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "32e68163-0960-4b54-af4c-23c4d3268fd6"
+                }
+            }
+        },
+        "preprocRoleRearc": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ],
+                "RoleName": "adx-finspace-integration-preprocessing-lambda-roleRearc",
+                "Tags": [
+                    {
+                        "Key": "project",
+                        "Value": "adx-finspace-integration"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "77e769ba-dea6-4d0c-8609-2b416ecbbc36"
+                }
+            }
+        },
+        "rearcBucket": {
+            "Type": "AWS::S3::Bucket",
+            "Properties": {
+                "BucketName": {
+                    "Ref": "S3RearcDataFilesBucket"
+                },
+                "NotificationConfiguration": {
+                    "EventBridgeConfiguration": {
+                        "EventBridgeEnabled": true
+                    }
+                },
+                "BucketEncryption": {
+                    "ServerSideEncryptionConfiguration": [
+                        {
+                            "ServerSideEncryptionByDefault": {
+                                "SSEAlgorithm": "AES256"
+                            }
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b5562198-371c-4ecb-a0b7-741e341fa2b9"
+                }
+            }
+        },
+        "rearcBucketPolicy": {
+            "Type": "AWS::S3::BucketPolicy",
+            "Properties": {
+                "Bucket": {
+                    "Ref": "rearcBucket"
+                },
+                "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Id": "CrossAccountAccess",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::",
+                                            {
+                                                "Ref": "EnvironmentInfrastructureAccount"
+                                            },
+                                            ":role/FinSpaceServiceRole"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "Action": "s3:GetObject",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "arn:aws:s3:::",
+                                        {
+                                            "Ref": "rearcBucket"
+                                        },
+                                        "/*"
+                                    ]
+                                ]
+                            }
+                        },
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": {
+                                    "Fn::Join": [
+                                        "",
+                                        [
+                                            "arn:aws:iam::",
+                                            {
+                                                "Ref": "EnvironmentInfrastructureAccount"
+                                            },
+                                            ":role/FinSpaceServiceRole"
+                                        ]
+                                    ]
+                                }
+                            },
+                            "Action": "s3:ListBucket",
+                            "Resource": {
+                                "Fn::Join": [
+                                    "",
+                                    [
+                                        "arn:aws:s3:::",
+                                        {
+                                            "Ref": "rearcBucket"
+                                        }
+                                    ]
+                                ]
+                            }
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "4d5eef41-fe91-4ce4-ba12-a1c075e95162"
+                }
+            },
+            "DependsOn": [
+                "rearcBucket"
+            ]
+        },
+        "postprocRoleRearc": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "lambda.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AmazonS3FullAccess",
+                    "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                ],
+                "RoleName": "adx-finspace-integration-postprocessing-lambda-roleRearc",
+                "Tags": [
+                    {
+                        "Key": "project",
+                        "Value": "adx-finspace-integration"
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "24d72f76-86ce-40a0-a906-53d2a6692d8f"
+                }
+            }
+        },
+        "rearcStateMachine": {
+            "Type": "AWS::StepFunctions::StateMachine",
+            "Properties": {
+                "StateMachineName": "adx-integration-finspace-rearc-state-machine",
+                "DefinitionS3Location": {
+                    "Bucket": {
+                        "Ref": "S3sourceBucket"
+                    },
+                    "Key": "stateMachine-template.json"
+                },
+                "DefinitionSubstitutions": {
+                    "PreprocLambdaFunction": {
+                        "Fn::GetAtt": [
+                            "rearcPreprocLambda",
+                            "Arn"
+                        ]
+                    },
+                    "ImportLambdaFunction": {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "${CoreStackName}-ImportLambdaFunction"
+                        }
+                    },
+                    "AsyncWaitLambdaFunction": {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "${CoreStackName}-AsyncWaitLambdaFunction"
+                        }
+                    },
+                    "PostProcessingLambdaFunction": {
+                        "Fn::GetAtt": [
+                            "rearcPostprocLambda",
+                            "Arn"
+                        ]
+                    }
+                },
+                "RoleArn": {
+                    "Fn::GetAtt": [
+                        "StatesExecutionRoleRearc",
+                        "Arn"
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "9ff2e624-3840-47a1-a831-b4169b39c070"
+                }
+            }
+        },
+        "rearcPreprocLambda": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Code": {
+                    "S3Bucket": {
+                        "Ref": "S3sourceBucket"
+                    },
+                    "S3Key": "adx-finspace-integration-dailyTreasureMaturity-preproc.zip"
+                },
+                "Timeout": 900,
+                "Handler": "adx-finspace-integration-dailyTreasureMaturity-preproc.lambda_handler",
+                "Runtime": "python3.8",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "preprocRoleRearc",
+                        "Arn"
+                    ]
+                },
+                "Layers": [
+                    {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "${CoreStackName}-AdxLibraryLayer"
+                        }
+                    },
+                    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p38-pandas:1"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "38f0f6cd-7020-4121-b8c0-23aca586f208"
+                }
+            },
+            "DependsOn": [
+                "preprocRoleRearc"
+            ]
+        },
+        "StatesExecutionRoleRearc": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/CloudWatchFullAccess"
+                ],
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    {
+                                        "Fn::Sub": "states.${AWS::Region}.amazonaws.com"
+                                    }
+                                ]
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "StatesExecutionPolicy",
+                        "PolicyDocument": {
+                            "Version": "2012-10-17",
+                            "Statement": [
+                                {
+                                    "Effect": "Allow",
+                                    "Action": [
+                                        "lambda:InvokeFunction"
+                                    ],
+                                    "Resource": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:lambda:",
+                                                {
+                                                    "Fn::ImportValue": {
+                                                        "Fn::Sub": "${CoreStackName}-FinspaceRegion"
+                                                    }
+                                                },
+                                                ":",
+                                                {
+                                                    "Ref": "AWS::AccountId"
+                                                },
+                                                ":function:adx-*"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2f880782-60d2-4ec2-bb71-3fa3240c19ec"
+                }
+            }
+        },
+        "stateFunctionLogGroup": {
+            "Type": "AWS::Logs::LogGroup",
+            "Properties": {"RetentionInDays":3},
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "06e912f1-586b-40cb-8fb9-e75cd53235b6"
+                }
+            }
+        },
+        "rearcPostprocLambda": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Code": {
+                    "S3Bucket": {
+                        "Ref": "S3sourceBucket"
+                    },
+                    "S3Key": "postprocessing.py.zip"
+                },
+                "Timeout": 900,
+                "Handler": "postprocessing.lambda_handler",
+                "Runtime": "python3.8",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "postprocRoleRearc",
+                        "Arn"
+                    ]
+                },
+                "Layers": [
+                    {
+                        "Fn::ImportValue": {
+                            "Fn::Sub": "${CoreStackName}-AdxLibraryLayer"
+                        }
+                    },
+                    "arn:aws:lambda:us-east-1:770693421928:layer:Klayers-p38-pandas:1"
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e3c54ae9-e196-42ea-8094-5a6f724f5bc0"
+                }
+            },
+            "DependsOn": [
+                "postprocRoleRearc"
+            ]
+        },
+        "RearcPublishEvent": {
+            "Type": "AWS::Events::Rule",
+            "Properties": {
+                "EventPattern": {
+                    "source": [
+                        "aws.s3"
+                    ],
+                    "detail-type": [
+                        "Object Created"
+                    ],
+                    "detail": {
+                        "bucket": {
+                            "name": [
+                                {
+                                    "Ref": "rearcBucket"
+                                }
+                            ]
+                        },
+                        "object": {
+                            "key": [
+                                {
+                                    "anything-but": {
+                                        "prefix": "_"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Targets": [
+                    {
+                        "Arn": {
+                            "Ref": "rearcStateMachine"
+                        },
+                        "Id": "rearcupdateevent",
+                        "RoleArn": {
+                            "Fn::GetAtt": [
+                                "EventbridgeInvokeStepRoleRearc",
+                                "Arn"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "adb171d7-e2d7-4983-9cf8-a45f7c4df813"
+                }
+            }
+        },
+        "EventbridgeInvokeStepRoleRearc": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+                "RoleName": "EventbridgeInvokeStepRoleRearc",
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess"
+                ],
+                "AssumeRolePolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": "events.amazonaws.com"
+                            },
+                            "Action": "sts:AssumeRole"
+                        }
+                    ]
+                }
+            },
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6719fcfe-4b04-4d3a-afe7-683383a4dc4d"
+                }
+            }
+        }
+    }
+}
