@@ -2,7 +2,7 @@
 
 This repo provides the CloudFormation template to deploy the automated integration between Amazon Data Exchange and Amazon FinSpace. 
 
-More details about this repo are available in this blog (link coming soon)
+More details about this repo are available [in this blog](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
 
 Abstract from blog: 
 
