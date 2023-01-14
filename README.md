@@ -4,10 +4,13 @@ This repo provides the CloudFormation template to deploy the automated integrati
 
 More details about this repo are available [in this blog](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
 
-## How to get started
+## How to deploy this integration framework
 
-Check the instructions provided in chapter "Deploy AWS Data Exchange – FinSpace integration" in the [blog above](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
+Check the instructions provided in chapter "Deploy AWS Data Exchange – FinSpace integration" of the [blog](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
 
+## How to extend this integration framework to other AWS Data Exchange datasets or to other datasets in S3 buckets
+
+Check the instructions provided in chapter "How to extend this integration to other datasets" of the [blog](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
 
 ## Security
 
