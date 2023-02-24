@@ -12,6 +12,12 @@ Check the instructions provided in chapter "Deploy AWS Data Exchange – FinSpac
 
 Check the instructions provided in chapter "How to extend this integration to other datasets" of the [blog](https://aws.amazon.com/blogs/industries/how-to-set-up-a-fully-automated-data-pipeline-from-aws-data-exchange-to-amazon-finspace/)
 
+### Support for additional datasets
+
+Support for the following datasets have been added using instructions from `How to extend this integration to other datasets` of the blog:  
+
+- [SP500](SP500_data_set.md#SP500-Dataset)
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
