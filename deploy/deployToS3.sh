@@ -17,6 +17,7 @@ zip -j ./artifacts/importDataset.py.zip ../lambda/functions/importDataset/import
 zip -j ./artifacts/postprocessing.py.zip ../lambda/functions/postprocessing/postprocessing.py
 zip -j ./artifacts/adx-finspace-integration-alphavantage-preproc.zip ../lambda/functions/preprocessing/adx-finspace-integration-alphavantage-preproc.py
 zip -j ./artifacts/adx-finspace-integration-dailyTreasureMaturity-preproc.zip ../lambda/functions/preprocessing/adx-finspace-integration-dailyTreasureMaturity-preproc.py
+zip -j ./artifacts/adx-finspace-integration-sp500-preproc.zip ../lambda/functions/preprocessing/adx-finspace-integration-sp500-preproc.py
 
 #cfn templates packaging
 cp ../cfn/adx-cfn-core.json ./artifacts/
@@ -49,6 +50,15 @@ zip -r lambda-create-dynamo-item-rearc-maturity.zip cfn-response.js index.js nod
 mv lambda-create-dynamo-item-rearc-maturity.zip ..
 cd ..
 rm -rf lambda-create-dynamo-item-rearc-maturity
+cd ..
+
+#helpers functions to create dynamodb items for SP500
+cp -r ../cfn/lambda-create-dynamo-item-sp500 ./artifacts/
+cd ./artifacts/lambda-create-dynamo-item-sp500
+zip -r lambda-create-dynamo-item-sp500.zip cfn-response.js index.js node_modules/
+mv lambda-create-dynamo-item-sp500.zip ..
+cd ..
+rm -rf lambda-create-dynamo-item-sp500
 
 #clean up the target bucket (versioning disabled)
 aws s3 rm s3://$1 --recursive

@@ -1,6 +1,9 @@
-const AWS = require("aws-sdk"); const response = require("cfn-response"); const docClient = new AWS.DynamoDB.DocumentClient(); exports.handler = function(event, context) {
-  console.log(JSON.stringify(event,null,2));
+const AWS = require("aws-sdk"); 
+const response = require("cfn-response"); 
+const docClient = new AWS.DynamoDB.DocumentClient(); 
 
+exports.handler = function(event, context) {
+  console.log(JSON.stringify(event,null,2));
   var datesetBucketArn = "arn:aws:s3:::" + event.ResourceProperties.S3AVDataFilesBucket;
   var datasetOwnerEmail = event.ResourceProperties.FinspaceDatasetOwnerEmail;
   var datasetOwnerName = event.ResourceProperties.FinspaceDatasetOwnerName;
